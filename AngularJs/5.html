@@ -1,0 +1,34 @@
+<!-- 5) Write an Angular JS script to demonstrate the use of services -->
+
+<html ng-app="serviceApp">
+<head>
+    <title>AngularJS Service Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="NameController">
+    <p>Full Name: {{ getFullName() }}</p>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var serviceApp = angular.module('serviceApp', []);
+
+    // Define the service
+    serviceApp.service('NameService', function() {
+        this.concatNames = function(firstName, lastName) {
+            return firstName + ' ' + lastName;
+        };
+    });
+
+    // Define the controller and inject the service
+    serviceApp.controller('NameController', function($scope, NameService) {
+        // Use the service method in the controller
+        $scope.getFullName = function() {
+            return NameService.concatNames('Dhananjay', 'Bhirud');
+        };
+    });
+</script>
+</body>
+</html>

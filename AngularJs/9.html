@@ -1,0 +1,56 @@
+<!-- 9) Design a simple form and apply validation to it. -->
+	
+<html  ng-app="validatedFormApp">
+<head>
+    <title>AngularJS Validated Form Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="ValidatedFormController">
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" ng-model="user.name" ng-minlength="3" ng-maxlength="20" required>
+        
+<div ng-show="userForm.name.$touched && userForm.name.$error.required">Name is required.</div>
+       
+ <div ng-show="userForm.name.$error.minlength || userForm.name.$error.maxlength">Name must be between 3 and 20 characters.</div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ng-model="user.email" required>
+        
+<div ng-show="userForm.email.$touched && userForm.email.$error.required">Email is required.</div>
+       
+ <div ng-show="userForm.email.$error.email">Invalid email format.</div>
+
+        <button type="submit" ng-disabled="userForm.$invalid">Submit</button>
+    </form>
+
+    <p ng-show="submitted">Hello, {{ user.name }}! Thanks for providing your email: {{ user.email }}.</p>
+
+</div>
+
+
+<script>
+    // Define the AngularJS module
+    var validatedFormApp = angular.module('validatedFormApp', []);
+
+    // Define the controller and its scope
+    validatedFormApp.controller('ValidatedFormController', function($scope) {
+        // Initialize the user object
+        $scope.user = {};
+
+        // Initialize the submitted flag
+        $scope.submitted = false;
+
+        // Function to handle form submission
+        $scope.submitForm = function() {
+            // Set the submitted flag to true
+            $scope.submitted = true;
+        };
+    });
+</script>
+
+</body>
+</html>

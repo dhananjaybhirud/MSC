@@ -1,0 +1,40 @@
+<!-- 1) Write a program to print “Hello world!” using angular js script -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+
+<title>Angular Demo</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script type="text/javascript">
+
+    var myApp = angular.module("AngularApp", []);
+
+    myApp.controller("HelloController", function ($scope) {
+
+        $scope.txtname = " ";
+
+    });
+
+</script>
+
+</head>
+
+<body ng-app="AngularApp">
+
+<div ng-controller="HelloController">
+
+<input type="text" ng-model = "txtname">
+
+<p>Enter Text : {{txtname}}</p>
+
+</div>
+
+</body>
+
+</html>

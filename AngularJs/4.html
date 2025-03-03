@@ -1,0 +1,28 @@
+<!-- 4) Write an Angular JS script to print first name and last name using angular js controller -->
+
+<html  ng-app="nameApp">
+<head>
+    <title>AngularJS Controller Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="NameController">
+    <p>First Name: {{ firstName }}</p>
+    <p>Last Name: {{ lastName }}</p>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var nameApp = angular.module('nameApp', []);
+
+    // Define the controller and its scope
+    nameApp.controller('NameController', function($scope) {
+        // Initialize variables in the scope
+        $scope.firstName = 'Dhananjay';
+        $scope.lastName = 'Bhirud';
+    });
+</script>
+
+</body>
+</html>

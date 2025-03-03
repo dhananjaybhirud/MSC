@@ -1,0 +1,43 @@
+<!-- 6) Write an Angular JS script to demonstrate the use of Tables -->
+
+<html  ng-app="tableApp">
+<head>
+    <title>AngularJS Table Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="TableController">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var tableApp = angular.module('tableApp', []);
+
+    // Define the controller and its scope
+    tableApp.controller('TableController', function($scope) {
+        // Sample user data
+        $scope.users = [
+            { name: 'ABC', email: 'abc@gmail.com' },
+            { name: 'PQR', email: 'pqr@gmail.com' },
+            { name: 'XYZ', email: 'xyz@gmail.com' }
+        ];
+    });
+</script>
+
+</body>
+</html>

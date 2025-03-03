@@ -1,0 +1,26 @@
+<!-- 3) Write an Angular JS script to add Modules and Controller -->
+
+<html ng-app="myApp">
+<head>
+<title>AngularJS Modules and Controller</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="MyController">
+<h1>{{ greeting }}</h1>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var myAppModule = angular.module('myApp', []);
+
+    // Define the controller and its scope
+    myAppModule.controller('MyController', function($scope) {
+        // Initialize a variable in the scope
+        $scope.greeting = 'Hello from MyController!';
+    });
+</script>
+
+</body>
+</html>

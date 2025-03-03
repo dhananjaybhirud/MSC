@@ -1,0 +1,46 @@
+<!-- 8) Design a simple form using Angular JS Script -->
+
+<html  ng-app="simpleFormApp">
+<head>
+    <title>AngularJS Simple Form Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="SimpleFormController">
+    <form ng-submit="submitForm()">
+        
+  <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="user.name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" ng-model="user.email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p ng-show="submitted">Hello, {{ user.name }}! Thanks for providing your email: {{ user.email }}.</p>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var simpleFormApp = angular.module('simpleFormApp', []);
+
+    // Define the controller and its scope
+    simpleFormApp.controller('SimpleFormController', function($scope) {
+        // Initialize the user object
+        $scope.user = {};
+
+        // Initialize the submitted flag
+        $scope.submitted = false;
+
+        // Function to handle form submission
+        $scope.submitForm = function() {
+            // Set the submitted flag to true
+            $scope.submitted = true;
+        };
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- 7) i) Write an Angular JS script to create select box using options -->
+<html  ng-app="selectBoxApp">
+<head>
+    <title>AngularJS Select Box Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="SelectBoxController">
+    <label for="countries">Select a Country:</label>
+    <select id="countries" ng-model="selectedCountry" ng-options="country for country in countries">
+    </select>
+
+    <p>You selected: {{ selectedCountry }}</p>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var selectBoxApp = angular.module('selectBoxApp', []);
+
+    // Define the controller and its scope
+    selectBoxApp.controller('SelectBoxController', function($scope) {
+        // Sample list of countries
+        $scope.countries = ['India', 'USA', 'Canada', 'UK', 'Australia', 'Germany'];
+
+        // Initialize the selectedCountry variable
+        $scope.selectedCountry = $scope.countries[0];
+    });
+</script>
+
+</body>
+</html>

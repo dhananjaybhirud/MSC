@@ -1,0 +1,33 @@
+<!-- 7) ii) Write an Angular JS script to create select box using options -->
+
+<html  ng-app="selectBoxApp">
+<head>
+    <title>AngularJS Select Box Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="SelectBoxController">
+    <label for="fruitSelect">Select a Fruit:</label>
+    <select id="fruitSelect" ng-model="selectedFruit">
+        <option value="apple">Apple</option>
+        <option value="orange">Orange</option>
+        <option value="banana">Banana</option>
+        <option value="grape">Grape</option>
+    </select>
+    <p>You selected: {{ selectedFruit }}</p>
+</div>
+
+<script>
+    // Define the AngularJS module
+    var selectBoxApp = angular.module('selectBoxApp', []);
+
+    // Define the controller and its scope
+    selectBoxApp.controller('SelectBoxController', function($scope) {
+        // Initialize the selectedFruit variable
+        $scope.selectedFruit = 'apple';
+    });
+</script>
+
+</body>
+</html>
