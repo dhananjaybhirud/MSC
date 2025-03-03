@@ -1,0 +1,14 @@
+@relation emp
+@attribute name{yashashri,chetana,unnati,girish,manish}
+@attribute id numeric
+@attribute gender{male,female}
+@attribute salary numeric
+@attribute age numeric    
+
+@data
+
+yashashri,1,female,30000,21
+chetana,2,female,20000,20
+unnati,3,female,40000	,22
+girish,4,male,69999,22
+manish,5,male,89999,21

@@ -1,0 +1,22 @@
+@relation employee
+
+@attribute age numeric
+@attribute salary numeric
+@attribute department{HR,IT,Sales,Finance}
+@attribute experience numeric 
+@attribute performance{Low,Medium,High}
+@attribute promotion{Yes,No}
+
+@data
+25,35000,IT,2,Medium,No
+30,45000,Sales,5,High,Yes
+28,40000,HR,3,Medium,No
+35,55000,Finance,8,High,Yes
+40,60000,IT,10,High,Yes
+22,32000,Sales,1,Low,No
+50,70000,HR,15,High,Yes
+27,38000,IT,3,Medium,No
+45,65000,Finance,12,High,Yes
+33,50000,Sales,6,Medium,No
+
+

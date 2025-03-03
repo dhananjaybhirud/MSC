@@ -1,0 +1,19 @@
+@relation student
+@attribute sid numeric
+@attribute  name{yashashri,chetana,unnati,charu,shraddha,sachin}
+@attribute DM numeric
+@attribute WT numeric
+@attribute CN numeric
+@attribute AI numeric
+@attribute STM numeric
+@attribute total numeric
+@attribute result{pass,fail}
+
+@data
+
+1,yashashri,?,55,45,50,40,250,pass
+2,chetana,60,55,45,40,40,240,pass
+3,unnati,60,55,40,50,40,240,pass
+4,charu,60,55,30,50,40,235,pass
+5,shraddha,60,55,45,60,40,260,pass
+6,sachin,60,55,65,50,40,210,pass
