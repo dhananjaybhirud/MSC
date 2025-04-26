@@ -1,0 +1,17 @@
+@relation product_sales
+@attribute Product_ID numeric
+@attribute Category {Electronics, Furniture, Clothing}
+@attribute Price numeric
+@attribute Units_Sold numeric
+@attribute Discount numeric
+
+@data
+
+001, Electronics, 200, 500, 15
+002, Furniture, 300, 150, 10
+003, Clothing, 50, 800, 5
+004, Electronics, 250, 400, 20
+005, Furniture, 350, 100, 5
+006, Clothing, 80, 600, 10
+007, Electronics, 150, 700, 25
+008, Furniture, 200, 200, 15

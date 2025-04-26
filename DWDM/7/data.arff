@@ -1,0 +1,20 @@
+@relation food_items
+@attribute Food_ID numeric
+@attribute Category {Fruit, Bread, Dairy, Vegetable, Snack}
+@attribute Price numeric
+@attribute Calories numeric
+@attribute Weight numeric
+@attribute Fat_Content numeric
+
+@data
+
+001, Fruit, 1.5, 50, 150, 0.2
+002, Vegetable, 2.0, 40, 200, 0.1
+003, Dairy, 3.0, 150, 250, 10
+004, Bread, 5.0, 200, 300, 20
+005, Snack, 1.2, 250, 50, 5
+006, Fruit, 1.0, 60, 130, 0.3
+007,Bread, 4.5, 180, 350, 25
+008, Dairy, 2.5, 120, 230, 8
+009, Vegetable, 1.8, 30, 180, 0.05
+010, Snack, 1.0, 300, 100, 10
