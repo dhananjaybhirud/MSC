@@ -1,0 +1,99 @@
+﻿Practical No: - 4 write a program for searching element form given array using 
+binary search  
+#include <iostream> 
+#include <conio.h> 
+using namespace std; 
+int a[1100], n, x; 
+class Bin_Search 
+{ 
+public: 
+    void getdata(); 
+    int bin_search(int[], int, int); 
+    void sort(); 
+    void display(); 
+} s; 
+void Bin_Search::getdata() 
+{ 
+    cout << "\nHow many elements do you want to enter: "; 
+    cin >> n; 
+    cout << "\nEnter " << n << " elements:\n"; 
+    for (int i = 0; i < n; i++) 
+        cin >> a[i]; 
+    cout << "\nEntered elements are:\n"; 
+    display(); 
+    cout << "\nSorted elements are:\n"; 
+    sort(); 
+    display(); 
+    cout << "\nWhich element do you want to search: "; 
+    cin >> x; 
+} 
+void Bin_Search::display() 
+{ 
+    for (int i = 0; i < n; i++) 
+        cout << a[i] << " "; 
+    cout << endl; 
+} 
+void Bin_Search::sort() 
+{ 
+    int temp; 
+    for (int i = 0; i < n - 1; i++) 
+
+
+
+    { 
+        for (int j = i + 1; j < n; j++) 
+        { 
+            if (a[i] > a[j]) 
+            { 
+                temp = a[i]; 
+                a[i] = a[j]; 
+                a[j] = temp; 
+            } 
+        } 
+    } 
+} 
+int Bin_Search::bin_search(int a[], int n, int x) 
+{ 
+    int low = 0, high = n - 1, mid; 
+    while (low <= high) 
+    { 
+        mid = (low + high) / 2; 
+        if (a[mid] == x) 
+            return mid;  
+        else if (x < a[mid]) 
+            high = mid - 1; 
+        else 
+            low = mid + 1; 
+    } 
+    return -1; // not found 
+} 
+int main() 
+{ 
+    s.getdata(); 
+    int pos = s.bin_search(a, n, x); 
+    if (pos == -1) 
+        cout << "\nElement not found in the sorted array."; 
+    else 
+        cout << "\nElement found at position: " << pos << endl; 
+    getch(); 
+    return 0; 
+} 
+ 
+/*OUTPUT*/ 
+
+
+
+ 
+How many elements do you want to enter: 6 
+ 
+Enter 6 elements: 
+89 25 45 12 32 75 
+ 
+Entered elements are: 
+89 25 45 12 32 75 
+ 
+Sorted elements are: 
+12 25 32 45 75 89 
+ 
+Which element do you want to search: 45 
+Element found at position: 3

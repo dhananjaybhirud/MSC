@@ -1,0 +1,102 @@
+﻿Practical No: - 7 Write a program to find solution of Knapsack instant. 
+ 
+#include <iostream> 
+#include <conio.h> 
+using namespace std; 
+int n, P[10], W[10], M; 
+float X[10], A[10]; 
+class Greedy_Knapsack 
+{ 
+public: 
+    void Getdata(); 
+    void Sort(float A[], int P[], int W[], int n); 
+    void KNAPSACK(int P[], int W[], int M, float X[], int n); 
+}; 
+void Greedy_Knapsack::Getdata() 
+{ 
+    cout << "\nEnter the number of objects: "; 
+    cin >> n; 
+    cout << "\nEnter the Capacity: "; 
+    cin >> M; 
+    cout << "\nEnter the Profit: "; 
+    for(int i = 0; i < n; i++) 
+        cin >> P[i]; 
+    cout << "\nEnter the Weight: "; 
+    for(int i = 0; i < n; i++) 
+        cin >> W[i]; 
+} 
+void Greedy_Knapsack::Sort(float A[], int P[], int W[], int n) 
+{ 
+    for(int i = 0; i < n-1; i++) 
+    { 
+        for(int j = i+1; j < n; j++) 
+        { 
+            if(A[i] < A[j]) // Descending order 
+            { 
+                swap(A[i], A[j]); 
+                swap(P[i], P[j]); 
+                swap(W[i], W[j]); 
+            } 
+        } 
+
+
+
+    } 
+} 
+void Greedy_Knapsack::KNAPSACK(int P[], int W[], int M, float X[], int n) 
+{ 
+    int cu = M; 
+    for(int i = 0; i < n; i++) 
+        X[i] = 0; 
+    for(int i = 0; i < n; i++) 
+    { 
+        if(W[i] <= cu) 
+        { 
+            X[i] = 1; 
+            cu -= W[i]; 
+        } 
+        else 
+        { 
+            X[i] = (float)cu / W[i]; 
+            break; 
+        } 
+    } 
+} 
+int main() 
+{ 
+    float maxProfit = 0, maxWt = 0; 
+    Greedy_Knapsack GD; 
+    GD.Getdata(); 
+    for(int i = 0; i < n; i++) 
+        A[i] = (float)P[i]/W[i]; 
+    GD.Sort(A, P, W, n); 
+    GD.KNAPSACK(P, W, M, X, n); 
+    cout << "\nFractional Solution:\n"; 
+    for(int i = 0; i < n; i++) 
+        cout << "X[" << i << "] = " << X[i] << endl; 
+    for(int i = 0; i < n; i++) 
+    { 
+        maxProfit += P[i] * X[i]; 
+        maxWt += W[i] * X[i]; 
+    } 
+    cout << "\nMaximum Profit = " << maxProfit; 
+    cout << "\nMaximum Weight = " << maxWt << endl; 
+
+
+
+ 
+    getch();    
+    return 0;   
+} 
+ 
+/*OUTPUT*/ 
+Enter the number of objects: 3 
+Enter the Capacity: 34 24 14 
+Enter the Profit: 17 15 11 
+Enter the Weight: 18 15 10 
+Fractional Solution: 
+X[0] = 1 
+X[1] = 1 
+X[2] = 0.444444 
+Maximum Profit = 45.5556 
+Maximum Weight = 34

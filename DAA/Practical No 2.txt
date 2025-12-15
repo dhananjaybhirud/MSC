@@ -1,0 +1,141 @@
+﻿Practical No: 2 Write a program to implement union and find operation. 
+ 
+#include<iostream>  
+#include<conio.h>  
+using namespace std; 
+typedef struct Node 
+{ 
+int nParent;  
+int nInfo; 
+}* PNode,Node; Node* Tree;  
+int n; 
+void ReadData() 
+{ 
+cout<<"Enter the number of nodes: ";  
+cin>>n; 
+Tree= new Node[n+1];  
+for(int i=1;i<=n;i++) 
+Tree[i].nInfo = -1; 
+cout<<"Enter type data in the nodes: ";  
+for(int i=1;i<=n;i++) 
+{ 
+cin>>Tree[i].nInfo;  
+Tree[i].nParent = -1; 
+} 
+} 
+void Union(int i,int j) 
+{ 
+int temp = Tree[i].nParent = Tree[j].nParent;  
+if(Tree[i].nParent> Tree[j].nParent) 
+{ 
+Tree[i].nParent = j;  
+Tree[j].nParent = temp; 
+} 
+else 
+{ 
+Tree[j].nParent = i;  
+Tree[i].nParent = temp; 
+} 
+} 
+int Find(int i) 
+{ 
+while(Tree[i].nParent>=0) 
+{ 
+i=Tree[i].nParent; 
+} 
+return i; 
+} 
+void main() 
+{ 
+//clrscr(); 
+
+
+
+ReadData();  
+int x; 
+int ch,root1,root2;  
+do 
+{ 
+cout<<"\n ****Main Menu****";  
+cout<<"\n 1.UNION 2.Find 3.Exit";  
+cout<<"\n Enter Your Choice: ";  
+cin>>ch; 
+if(ch==1) 
+{ 
+ cout<<"Enter roots of both tree: ";  
+ cin>>root1>>root2;  
+ Union(root1,root2); 
+} 
+if(ch==2) 
+{ 
+cout<<"Enter roots of both tree: ";  
+cin>>root1>>root2;  
+Union(root1,root2); 
+cout<<"Enter the node to find: ";  
+cin>>x; 
+cout<<"ROOT NODE OF " <<x<<" is: "; 
+cout<<Find(x); 
+cout<<"\n"; 
+} 
+} 
+while(ch!=3); 
+getch(); 
+} 
+ 
+/*OUTPUT*/ 
+Enter the number of nodes: 8 
+Enter type data in the nodes: 1 2 3 4 5 6 7 8 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 1 2 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit 
+Enter Your Choice: 1 
+Enter roots of both tree: 3 4 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 5 6 
+ 
+
+
+
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 7 8 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 1 3 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 5 7 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 1 
+Enter roots of both tree: 1 5 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 2  
+Enter the node to find: 5  
+ROOT NODE OF 5 is: 1 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 2  
+Enter the node to find: 4  
+ROOT NODE OF 4 is: 1 
+ 
+******Main Menu****** 
+1.UNION 2.Find 3.Exit  
+Enter Your Choice: 3

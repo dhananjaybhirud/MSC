@@ -1,0 +1,83 @@
+﻿Practical No: - 3 Write a Program to Find Maximum & Minimum From Given 
+Array. 
+#include<iostream>  
+#include<conio.h> 
+using namespace std; 
+int A[700],i;  
+class Min_Max 
+{ 
+public: 
+int n; 
+void getdata();  
+int max(int,int);  
+int min(int,int); 
+void min_max(int,int,int*,int*); 
+}s; 
+void Min_Max::getdata() 
+{ 
+cout<<"\n\n How many element you want to enter:-";  
+cin>>n; 
+cout<<"\n\n Enter the Element:-";  
+for(i=1;i<=n;i++) 
+cin>>A[i]; 
+} 
+void Min_Max::min_max(int i,int j,int *fmax,int *fmin) 
+{ 
+int gmin,gmax,hmin,hmax,mid;  
+if(i>=j-1) 
+{ 
+if(A[i]<A[j]) 
+{ 
+*fmax=A[j]; 
+*fmin=A[i]; 
+} 
+else 
+{ 
+*fmax=A[i]; 
+*fmin=A[j]; 
+} 
+} 
+
+
+
+else 
+{ 
+mid =(i+j)/2; 
+min_max(i,mid,&gmax,&gmin);  
+min_max(mid+1,j,&hmax,&hmin); 
+*fmax=max(gmax,hmax); 
+*fmin=min(gmin,hmin); 
+} 
+} 
+int Min_Max::max(int max1,int max2) 
+{ 
+if(max1>max2)  
+ return max1; else 
+return max2; 
+} 
+int Min_Max::min(int min1,int min2) 
+{ 
+if(min1<min2)  
+ return min1; else 
+return min2; 
+} 
+void main() 
+{ 
+int max,min;  
+//clrscr(); 
+s.getdata();  
+s.min_max(1,s.n,&max,&min); 
+cout<<"\n The Maximum no is:- "<<max;  
+cout<<"\n The Minimum no is:- "<<min;  
+getch(); 
+} 
+ 
+/*OUTPUT*/ 
+
+How many element you want to enter:-6 
+
+Enter the Element:-56 43 89 76 22 32 
+
+The Maximum no is:- 89 
+
+The Minimum no is:- 22

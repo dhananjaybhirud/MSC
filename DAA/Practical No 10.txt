@@ -1,0 +1,70 @@
+﻿Practical No :- 10 Write a program to find shortest path using all pair path. 
+#include<iostream>  
+#include<conio.h> 
+using namespace std; 
+int i,j,k,n,COST[100][100],A[100][100]; 
+class Allpaths 
+{ 
+public: 
+void Getdata();  
+void All_paths(); 
+}a; 
+void Allpaths::Getdata() 
+{ 
+cout<<"\n\n Enter the no of nodes :-";  
+cin>>n; 
+cout<<"\n\n Enter the cost matrix :-";  
+for(i=1;i<=n;i++) 
+for(j=1;j<=n;j++)  
+ cin>>COST[i][j]; 
+} 
+void Allpaths::All_paths() 
+{ 
+for(i=1;i<=n;i++)  
+ for(j=1;j<=n;j++)  
+  A[i][j]=COST[i][j]; 
+for(k=1;k<=n;k++)  
+ for(i=1;i<=n;i++)  
+  for(j=1;j<=n;j++) 
+{ 
+if(A[i][j]<(A[i][k]+A[k][j]))  
+ A[i][j]=A[i][j]; 
+else 
+A[i][j]=A[i][k]+A[k][j]; 
+} 
+} 
+void main() 
+{ 
+//clrscr(); 
+a.Getdata();  
+a.All_paths(); 
+
+
+
+cout<<"\n Shortest Paths Matrix As Follows :-\n";  
+for(i=1;i<=n;i++) 
+{ 
+cout<<endl; for(j=1;j<=n;j++)  
+ cout<<A[i][j]<<"\t"; 
+} 
+getch(); 
+} 
+/*OUTPUT*/ 
+
+ Enter the no of nodes :-3 
+
+ Enter the cost matrix :- 
+
+0 4 11 
+
+6 0 2 
+
+3 100 0 
+
+ Shortest Paths Matrix As Follows :- 
+
+0       4       6 
+
+5       0       2 
+
+3       7       0
