@@ -1,0 +1,82 @@
+Practical No 10. Write a Python script to extract texture and color features of an image. 
+ 
+import cv2 
+importnumpy as np 
+ 
+defextract_color_features(image): 
+    # Convert the image from BGR to RGB (OpenCV uses BGR by default) 
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) 
+    # Compute color histogram for each channel 
+hist_r = cv2.calcHist([image_rgb], [0], None, [256], [0, 256]) 
+hist_g = cv2.calcHist([image_rgb], [1], None, [256], [0, 256]) 
+hist_b = cv2.calcHist([image_rgb], [2], None, [256], [0, 256]) 
+ 
+    # Normalize histograms 
+hist_r = cv2.normalize(hist_r, hist_r).flatten() 
+hist_g = cv2.normalize(hist_g, hist_g).flatten() 
+hist_b = cv2.normalize(hist_b, hist_b).flatten() 
+    # Return color features as a concatenated array 
+returnnp.concatenate([hist_r, hist_g, hist_b]) 
+ 
+defextract_texture_features(image): 
+    # Convert the image to grayscale 
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
+    # Calculate Local Binary Pattern (LBP) for texture features 
+    # Note: You need to implement or use a library that provides LBP functionality 
+    # For demonstration purposes, we'll use a placeholder for LBP features 
+    # Placeholder function for LBP computation 
+ 
+defcompute_lbp(image): 
+        # LBP computation should be implemented or use an existing library 
+        # This example assumes a placeholder method 
+        # Install 'scikit-image' for an actual implementation 
+fromskimage.feature import local_binary_pattern 
+lbp = local_binary_pattern(image, P=8, R=1, method='uniform') 
+ 
+        # Compute histogram for LBP values 
+lbp_hist, _ = np.histogram(lbp.ravel(), bins=np.arange(0, 11), range=(0, 10)) 
+returnlbp_hist 
+lbp_hist = compute_lbp(gray_image) 
+ 
+    # Normalize the LBP histogram 
+lbp_hist = lbp_hist.astype('float') 
+lbp_hist /= (lbp_hist.sum() + 1e-7)  # Avoid division by zero 
+ 
+returnlbp_hist 
+def main(image_path): 
+    # Load the image 
+image = cv2.imread(image_path) 
+if image is None: 
+print("Error: Image not found.") 
+return 
+    # Extract color features 
+color_features = extract_color_features(image) 
+print("Color Features:") 
+print(color_features) 
+ 
+    # Extract texture features 
+texture_features = extract_texture_features(image) 
+print("Texture Features:") 
+print(texture_features) 
+ 
+if __name__ == "__main__": 
+image_path = 'E:\\Msc\\rose.jpg'  # Replace with your image path 
+main(image_path) 
+ 
+ 
+output 
+ 
+Color Features: 
+ 
+
+ 
+ 
+Texture Features: 
+[0.0139301  0.0306422  0.02279618 0.08480631 0.17365658 0.16419782 
+ 0.05166436 0.04534239 0.36556543 0.04739864] 
+ 
+ 
+ 
+ 
+ 
+ 

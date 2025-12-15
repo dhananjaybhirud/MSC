@@ -1,0 +1,33 @@
+Practical No.3 Write a python script to perform Histogram Equilization 
+ 
+import cv2 
+importnumpy as np 
+a = cv2.imread("E:\\Msc\\image.jpg",1) 
+cv2.imshow("Original Image",a) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+img =cv2.cvtColor(a,cv2.COLOR_BGR2GRAY) 
+cv2.imshow("Gray Image",img) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+equ=cv2.equalizeHist(img) 
+cv2.imshow("Histogram Equalize Image",equ) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+ 
+ 

@@ -1,0 +1,31 @@
+Practical 6: Write a Python script to perform Image Restoration. 
+ 
+import cv2 
+importnumpy  as np 
+a= cv2.imread("E:\\ Msc\\flower.jpg",1) 
+cv2.imshow("Original Image",a) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+b=cv2.cvtColor(a,cv2.COLOR_BGR2GRAY) 
+denoised_img=cv2.fastNlMeansDenoisingColored(a,None,10,10,7,21) 
+ 
+cv2.imshow("Denoised Image",denoised_img) 
+ 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+ 
+cv2.imwrite("restored_image.jpg",denoised_img) 
+True 
+ 
+ 
+ 

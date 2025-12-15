@@ -1,0 +1,45 @@
+Practical No.4 Write a Python script to perform image filtering in special domains. 
+ 
+import cv2 
+importnumpy as np 
+img = cv2.imread("E:\\Msc\\orange.jpg",1) 
+cv2.imshow("Original Image",img) 
+ 
+Output 
+ 
+
+ 
+ 
+gray_img =cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+gaussian_blur = cv2.GaussianBlur(gray_img,(5,5),0) 
+median_blur = cv2.medianBlur(gray_img,5) 
+kernal = np.array([[0,-1,0],[-1,5,-1],[0,-1,0]]) 
+sharpened_img = cv2.filter2D(gray_img,-1,kernal) 
+cv2.imshow("Gray Image",gray_img) 
+ 
+Output 
+ 
+
+ 
+ 
+cv2.imshow("Gaussian Blur Image",gaussian_blur) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+ 
+cv2.imshow("Sharp Image",sharpened_img) 
+ 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,43 @@
+Practical No.7: Write a python script to perform edge detection using various operations 
+ 
+import cv2 
+importnumpy as np 
+a = cv2.imread("E:\\Msc\\bike.jpeg",1) 
+cv2.imshow('image',a) 
+sobelx=cv2.Sobel(a,cv2.CV_64F,1,0,ksize=5) 
+sobely=cv2.Sobel(a,cv2.CV_64F,1,0,ksize=5) 
+sobel=cv2.magnitude(sobelx,sobely) 
+sobel=np.uint8(sobel) 
+laplacian=cv2.Laplacian(a,cv2.CV_64F) 
+laplacian=np.uint8(np.absolute(laplacian)) 
+canny=cv2.Canny(a,100,200) 
+ 
+Output 
+ 
+ 
+
+ 
+ 
+cv2.imshow('Sobel Edge Detection',sobel) 
+ 
+ 
+
+ 
+ 
+ 
+ 
+cv2.imshow('laplacian Edge Detection',laplacian) 
+ 
+ 
+
+ 
+ 
+ 
+cv2.imshow('canny Edge Detection',canny) 
+ 
+ 
+
+ 
+ 
+ 
+ 

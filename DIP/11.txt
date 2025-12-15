@@ -1,0 +1,24 @@
+Practical No: 11 Write a python script to character recognition 
+import cv2 
+importpytesseract 
+img = cv2.imread('E:\\Msc\\leaf.jpg') 
+cv2.imshow('Image',img) 
+ 
+ 
+
+ 
+ 
+grayimg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+text = pytesseract.image_to_string(grayimg) 
+ 
+print("Recognized Text") 
+Recognized Text        
+ 
+print(text) 
+SmalS=iToos 
+Image to Text 
+Converter 
+ 
+ 
+ 
+ 

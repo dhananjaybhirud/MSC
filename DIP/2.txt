@@ -1,0 +1,36 @@
+Practical no: 2 Write a Python script to perform conversion between color spaces. 
+ 
+import cv2 
+img = cv2.imread("E:\\Msc\\rose.jpg",1) 
+cv2.imshow("Original Image",img) 
+ 
+ 
+ 
+ 
+
+ 
+ 
+img1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+cv2.imshow("Gray Image",img1) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+img2 = cv2.cvtColor(img,cv2.COLOR_BGR2RGB) 
+cv2.imshow("RGB Image",img2) 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
